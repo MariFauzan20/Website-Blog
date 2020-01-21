@@ -1,3 +1,6 @@
+<?php
+  include 'koneksi.php';
+ ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -35,22 +38,20 @@
       <div class="row">
         <div class="col-lg">
           <div class="box">
-
-          </div>
-        </div>
-        <div class="col-lg">
-          <div class="box">
-
-          </div>
-        </div>
-        <div class="col-lg">
-          <div class="box">
-
-          </div>
-        </div>
-        <div class="col-lg">
-          <div class="box">
-
+            <?php
+          		$data = mysqli_query($koneksi,"select * from artikel");
+          		while($d = mysqli_fetch_array($data)){
+          			?>
+          			<tr>
+          				<td>
+                    <div class="text-white">
+                      <?php echo $d['title']; ?>
+                    </div>
+                  </td>
+          			</tr>
+          			<?php
+          		}
+          		?>
           </div>
         </div>
       </div>
