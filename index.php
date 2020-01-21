@@ -28,6 +28,9 @@
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="input.php">Input <span class="sr-only"></span></a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -36,24 +39,20 @@
     <!-- Isi -->
     <div class="container">
       <div class="row">
+        <?php
+          $data = mysqli_query($koneksi,"select * from artikel");
+          while($d = mysqli_fetch_array($data)){
+            ?>
         <div class="col-lg">
-          <div class="box">
-            <?php
-          		$data = mysqli_query($koneksi,"select * from artikel");
-          		while($d = mysqli_fetch_array($data)){
-          			?>
-          			<tr>
-          				<td>
-                    <div class="text-white">
-                      <?php echo $d['title']; ?>
-                    </div>
-                  </td>
-          			</tr>
-          			<?php
-          		}
-          		?>
+          <div class="box latar">
+            <div class="text-white">
+              <?php echo $d['title']; ?>
+            </div>
           </div>
         </div>
+        <?php
+         }
+        ?>
       </div>
     </div>
     <!-- End Isi -->
